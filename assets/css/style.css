@@ -1,0 +1,15 @@
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #377bb5;
+    border-color: #377bb5;
+}
+
+.panel-default {
+    border-color: #377bb5;
+}
+
+.jumbotron {
+    color: white;
+    background-color: #377bb5;
+    text-align: center;
+}
