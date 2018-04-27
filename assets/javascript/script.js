@@ -46,17 +46,14 @@
         $("input").val("");
     });
 
-    //
+    // Looking for changes in Firebase and initialy loades data from Firebase 
     database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
-        console.log(childSnapshot.val());
-
         // Store data from database into variables
-        var tName = childSnapshot.val().name;
+        var tName = childSnapshot.val().tarainName;
         var tDestination = childSnapshot.val().destination;
         var tFirst = childSnapshot.val().firstTrain;
         var tFrequency = childSnapshot.val().frequency;
-
 
         // Console.loging the last user's data
         console.log(tName);
@@ -68,8 +65,8 @@
         var currentTime = moment();
         console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
+        // Pushed back 1 year to make sure it comes before current time
         var tFirstConverted = moment(tFirst, "HH:mm").subtract(1, "years");
-        console.log(tFirstConverted);
 
         // Difference between now amd first train
         var timeDiff = moment().diff(moment(tFirstConverted), "minutes");
@@ -84,12 +81,11 @@
         console.log("MINUTES TILL TRAIN: " + MinutesTillTrain);
 
         // Next Train
-        var nextTrain = moment().add(MinutesTillTrain, "minutes");
-        console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
-
-        var nextArrival = moment(nextTrain).format("hh:mm A")
+        var nextTrain = moment().add(MinutesTillTrain, "minutes").format("hh:mm A");
+        console.log("ARRIVAL TIME: " + nextTrain);
+        console.log("=====");
 
         // Add each train's data into the table
         $("#table-body").append("<tr><td>" + tName + "</td><td>" + tDestination + "</td><td>" +
-        tFrequency + "</td><td>" + nextArrival + "</td><td>" + MinutesTillTrain  + "</td></tr>");
+        tFrequency + "</td><td>" + nextTrain + "</td><td>" + MinutesTillTrain  + "</td></tr>");
     });

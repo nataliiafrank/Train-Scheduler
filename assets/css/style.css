@@ -1,15 +1,25 @@
 .panel-default>.panel-heading {
-    color: #333;
-    background-color: #377bb5;
-    border-color: #377bb5;
+    color: #fff;
+    background-color: rgba(89, 89, 89, 0.701);
+    border-color: rgba(89, 89, 89, 0.701);
 }
 
 .panel-default {
-    border-color: #377bb5;
+    border-color:rgba(89, 89, 89, 0.701);
 }
 
 .jumbotron {
     color: white;
-    background-color: #377bb5;
+    background-image: url("../images/t.jpg");
     text-align: center;
+}
+
+h1, h2 {
+    background-color: rgba(89, 89, 89, 0.701);
+    display:inline-block
+}
+
+#submit {
+    background-color: rgba(89, 89, 89, 0.701);
+    border: 1px solid #999;
 }
